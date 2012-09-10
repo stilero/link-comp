@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields>
+
+		<field
+			name="id"
+			type="hidden"
+			default="0"
+			required="true"
+			readonly="true"/>							
+															
+		<field
+			id="title"
+			name="title"
+			type="text"
+			required="true"
+			label="Title"
+			description="title_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="alias"
+			name="alias"
+			type="text"
+			required="false"
+			label="Alias"
+			description="alias_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+						
+		<field
+			id="description"
+			name="description"
+			type="editor"
+			label="Description"
+			description="description_Desc"
+			class="inputbox"
+			buttons="readmore,pagebreak"/>
+							
+		<field
+			id="published"
+			name="published"
+			type="list"
+			class="inputbox"
+			default="1"
+			size="1"
+			label="JField_Published_Label"
+			description="JField_Published_Desc">
+			<option
+				value="1">
+				JOption_Published</option>
+			<option
+				value="0">
+				JOption_UnPublished</option>
+			<option
+				value="-1">
+				JOption_Archived</option>
+			<option
+				value="-2">
+				JOption_Trashed</option>
+		</field>
+                          
+		<field
+			id="created"
+			name="created"
+			type="calendar"
+			required="false"
+			label="Creation Time"
+			description="created_Desc"
+			class="inputbox"
+			size="16"
+			format="%Y-%m-%d %H-%M-%S"/>			
+							
+							
+		<field
+			id="start"
+			name="start"
+			type="calendar"
+			required="false"
+			label="Start"
+			description="start_Desc"
+			class="inputbox"
+			size="16"
+			format="%Y-%m-%d %H-%M-%S"/>			
+							
+							
+		<field
+			id="end"
+			name="end"
+			type="calendar"
+			required="false"
+			label="End"
+			description="end_Desc"
+			class="inputbox"
+			size="16"
+			format="%Y-%m-%d %H-%M-%S"/>			
+							
+															
+		<field
+			id="linktext"
+			name="linktext"
+			type="text"
+			required="false"
+			label="Linktext"
+			description="linktext_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="linkurl"
+			name="linkurl"
+			type="text"
+			required="false"
+			label="Linkurl"
+			description="linkurl_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+								
+	</fields>	
+		
+</form>	

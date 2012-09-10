@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config>
+   <params>
+        <param name="example" type="text" default="example" label="Example" description="You can change this in components backend in the config.xml" />
+   </params>
+    <fieldset
+        name="Common"
+        label="Common"
+        description="Common">
+        <field 
+            name="default_linkurl" 
+            type="text" 
+            default="http://" 
+            label="Default Link URL" 
+            description="Enter a default link url."  
+        />
+        <field 
+            name="default_linktext" 
+            type="text" 
+            default="" 
+            label="Default Link Text" 
+            description="Enter a default link text"  
+        />
+    </fieldset>		   
+    <fieldset
+        name="permissions"
+        label="JCONFIG_PERMISSIONS_LABEL"
+        description="JCONFIG_PERMISSIONS_DESC">
+        <field
+            name="rules"
+            type="rules"
+            label="JCONFIG_PERMISSIONS_LABEL"
+            class="inputbox"
+            validate="rules"
+            filter="rules"
+            component="com_linkcomp"
+            section="component" 
+        />
+    </fieldset>	
+</config>

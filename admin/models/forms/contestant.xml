@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields>
+
+		<field
+			name="id"
+			type="hidden"
+			default="0"
+			required="true"
+			readonly="true"/>							
+															
+		<field
+			id="name"
+			name="name"
+			type="text"
+			required="true"
+			label="Name"
+			description="name_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+						
+		<field
+			id="description"
+			name="description"
+			type="editor"
+			label="Description"
+			description="description_Desc"
+			class="inputbox"
+			buttons="readmore,pagebreak"/>
+							
+		<field
+			id="created"
+			name="created"
+			type="calendar"
+			required="false"
+			label="Creation Time"
+			description="created_Desc"
+			class="inputbox"
+			size="16"
+			format="%Y-%m-%d %H-%M-%S"/>			
+							
+																			
+		<field
+			id="competition_id"
+			name="competition_id"
+			required="true"
+			type="linkcompcompetition"
+			label="Competition"
+			description="competition_id_Desc"
+			class="inputbox"
+			size="1"/>						
+														
+		<field
+			id="userid"
+			name="userid"
+			type="text"
+			required="false"
+			label="Userid"
+			description="userid_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="email"
+			name="email"
+			type="text"
+			required="false"
+			label="Email"
+			description="email_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="site_name"
+			name="site_name"
+			type="text"
+			required="false"
+			label="Site_name"
+			description="site_name_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="site_url"
+			name="site_url"
+			type="text"
+			required="false"
+			label="Site_url"
+			description="site_url_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="confirmed"
+			name="confirmed"
+			type="text"
+			required="false"
+			label="Confirmed"
+			description="confirmed_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+								
+	</fields>	
+		
+</form>	

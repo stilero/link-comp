@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields>
+
+		<field
+			name="id"
+			type="hidden"
+			default="0"
+			required="true"
+			readonly="true"/>							
+							
+		<field
+			name="id"
+			type="hidden"
+			default="0"
+			required="true"
+			readonly="true"/>							
+							
+		<field
+			id="created"
+			name="created"
+			type="calendar"
+			required="false"
+			label="Creation Time"
+			description="created_Desc"
+			class="inputbox"
+			size="16"
+			format="%Y-%m-%d %H-%M-%S"/>			
+							
+																			
+		<field
+			id="contestant_id"
+			name="contestant_id"
+			required="true"
+			type="linkcompcontestant"
+			label="Contestant"
+			description="contestant_id_Desc"
+			class="inputbox"
+			size="1"/>						
+																		
+		<field
+			id="competition_id"
+			name="competition_id"
+			required="true"
+			type="linkcompcompetition"
+			label="Competition"
+			description="competition_id_Desc"
+			class="inputbox"
+			size="1"/>						
+						
+		<field
+			id="contacted"
+			name="contacted"
+			type="calendar"
+			required="false"
+			label="Contacted"
+			description="contacted_Desc"
+			class="inputbox"
+			size="16"
+			format="%Y-%m-%d %H-%M-%S"/>			
+							
+									
+	</fields>	
+		
+</form>	

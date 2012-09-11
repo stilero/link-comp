@@ -13,7 +13,8 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.controller');
 JLoader::import('joomla.application.component.model'); 
 JLoader::import( 'communicator', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_linkcomp' . DS . 'classes' );
-JLoader::import( 'backlinkchecker', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_linkcomp' . DS . 'classes' );
+JLoader::import( 'backlinkvalidator', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_linkcomp' . DS . 'classes' );
+JLoader::import( 'link', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_linkcomp' . DS . 'classes' );
 //JLoader::import( 'model', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_linkcomp' . DS . 'models' );
 //JLoader::import( 'competition', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_linkcomp' . DS . 'models' );
 
@@ -65,6 +66,7 @@ class LinkcompController extends JController
             JLoader::import( 'contestant', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_linkcomp' . DS . 'models' );
             JRequest::checkToken() or jexit( 'Invalid Token' );
             $user =& JFactory::getUser();
+            $messageType = '';
             if(!$user->guest){
                 if($this->_validateBacklink()){
                     $date =& JFactory::getDate();
@@ -81,44 +83,47 @@ class LinkcompController extends JController
                     ); 
                     $model = JModel::getInstance( 'contestant', 'LinkcompModel' );
                     if ($model->store($post)) {
-                        $this->_msg .= JText :: _($this->_itemname .' Saved').'</ br>';
+                        $this->_msg .= JText :: _('Thanks for participating. ').'</ br>';
                     } else {
                         $this->_msg .= $model->getError(); 
+                        $messageType = 'error';
                     }
+                }else{
+                    $messageType = 'error';
                 }
             }else{
                 $this->_msg .= JText :: _('You must be logged in to compete.').'</ br>';
+                $messageType = 'error';
             }
             $link = 'index.php?option=com_linkcomp&view='.$this->_viewname.'&id='.JRequest::getVar('id').'&itemId='.JRequest::getInt('itemId') ;
-            $this->setRedirect($link, $this->_msg);
+            $this->setRedirect($link, $this->_msg, $messageType);
         }
         
         private function _validateBacklink(){
             $model = $this->getModel('competition');
             $competitionId = (int)JRequest::getInt('id');
             $data = $model->getItem($competitionId);
-            $urlToCheck = JRequest::getVar('site_url');
-            $backlinkToLookFor = $data->linkurl;
-            $anchorToLookFor = $data->linktext;
-            $this->_validator = new BacklinkChecker($urlToCheck, $backlinkToLookFor, $anchorToLookFor);
-            $validationResult = $this->_validator->validate();
+            $Link = new Link($data->linkurl, $data->linktext);
+            $Linker = new Link(JRequest::getVar('site_url'));
+            $this->_validator = new BacklinkValidator($Link, $Linker);
+            $validationResult = $this->_validator->check();
             $this->_collectErrors();
             return $validationResult;
         }
         
         private function _collectErrors(){
-            if($this->_validator->isLinkNotFound()){
-                $this->_msg .= JText::_('Link Not Found').'</ br>';
+            $errors = $this->_validator->getErrors();
+            $msg = array();
+            if(!$this->_validator->isFound() && empty($errors)){
+                $msg[] = JText::_('Link Not Found');
             }
-            if($this->_validator->hasLinkWrongAnchor()){
-                $this->_msg .= JText::_('Link text wrong').'</ br>';
+            if(in_array($this->_validator->getErrorCodeWrongAnchor(), $errors)){
+                $msg[] = JText::_('Link text wrong');
             }
-            if($this->_validator->hasLinkPageNoFollow()){
-                $this->_msg .= JText::_('The Link page has a meta tag with no follow').'</ br>';
+            if(in_array($this->_validator->getErrorCodeNoFollow(), $errors)){
+                 $msg[] = JText::_('The Link has no Follow rel-attribute');
             }
-            if($this->_validator->hasLinkNoFollow()){
-                $this->_msg .= JText::_('The Link has no Follow rel-attribute').'</ br>';
-            }
+            $this->_msg = implode('</li><li>', $msg);
         }
 	
 

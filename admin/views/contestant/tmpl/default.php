@@ -3,8 +3,6 @@
 defined('_JEXEC') or die('Restricted access');
 
   JToolBarHelper::title( JText::_( 'Contestant' ), 'generic.png' );
-  JToolBarHelper::publishList();
-  JToolBarHelper::unpublishList();
   JToolBarHelper::deleteList();
   JToolBarHelper::editListX();
   JToolBarHelper::addNewX();
@@ -41,14 +39,18 @@ defined('_JEXEC') or die('Restricted access');
 				</th>								<th class="title">
 					<?php echo JHTML::_('grid.sort', 'Email', 'a.email', $this->lists['order_Dir'], $this->lists['order'] ); ?>
 				</th>								<th class="title">
-					<?php echo JHTML::_('grid.sort', 'Site_name', 'a.site_name', $this->lists['order_Dir'], $this->lists['order'] ); ?>
+					<?php echo JHTML::_('grid.sort', 'Site Name', 'a.site_name', $this->lists['order_Dir'], $this->lists['order'] ); ?>
 				</th>								<th class="title">
-					<?php echo JHTML::_('grid.sort', 'Site_url', 'a.site_url', $this->lists['order_Dir'], $this->lists['order'] ); ?>
+					<?php echo JHTML::_('grid.sort', 'Site URL', 'a.site_url', $this->lists['order_Dir'], $this->lists['order'] ); ?>
 				</th>								<th class="title">
 					<?php echo JHTML::_('grid.sort', 'Created', 'a.created', $this->lists['order_Dir'], $this->lists['order'] ); ?>
 				</th>								<th class="title">
 					<?php echo JHTML::_('grid.sort', 'Id', 'a.id', $this->lists['order_Dir'], $this->lists['order'] ); ?>
-				</th>				
+				</th>
+                                </th>								
+                                <th class="title" width="20">
+					<?php echo JHTML::_('grid.sort', 'Confirmed', 'a.id', $this->lists['order_Dir'], $this->lists['order'] ); ?>
+				</th>
 			</tr>
 		</thead>
 		<tfoot>
@@ -75,7 +77,7 @@ defined('_JEXEC') or die('Restricted access');
  	$link = JRoute::_( 'index.php?option=com_linkcomp&view=contestant&task=edit&cid[]='. $row->id );
  	$row->id = $row->id; 	
  	$checked = JHTML::_('grid.id', $i, $row->id); 	
-  	$published = JHTML::_('grid.published', $row, $i ); 	
+  	$confirmed = JHTML::_('grid.boolean',$i , $row->confirmed ); 	
  	
   ?>
 	<tr class="<?php echo "row$k"; ?>">
@@ -93,7 +95,8 @@ defined('_JEXEC') or die('Restricted access');
         <td><?php echo $row->site_name ?></td>
         <td><?php echo $row->site_url ?></td>
         <td><?php echo $row->created ?></td>
-        <td><?php echo $row->id ?></td>		
+        <td><?php echo $row->id ?></td>	
+        <td><?php echo $confirmed ?></td>	
 	</tr>
 <?php
   $k = 1 - $k;

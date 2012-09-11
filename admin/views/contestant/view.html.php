@@ -81,12 +81,12 @@ class LinkcompViewContestant  extends JView {
 		$isNew		= ($item->id < 1);			
 
 		// Edit or Create?
-		if ($isNew) {
+		//if ($isNew) {
 			// initialise new record
-			$item->published = 1;
-		}
+			//$item->published = 1;
+		//}
 	
-		$lists['published'] 		= JHTML::_('select.booleanlist', 'published', 'class="inputbox"', $item->published );
+		//$lists['published'] 		= JHTML::_('select.booleanlist', 'published', 'class="inputbox"', $item->published );
 		
 	 	$this->assign('form', $form);
 	 

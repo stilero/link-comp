@@ -22,9 +22,6 @@ class TableWinner extends JTable
    /** @var int id- Primary Key  **/
    public $id = null;
 
-   /** @var varchar id  **/
-   public $id = null;
-
    /** @var datetime created  **/
    public $created = null;
 

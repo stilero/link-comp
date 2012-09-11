@@ -38,9 +38,13 @@ defined('_JEXEC') or die('Restricted access');
 
 				<th class="title">
 					<?php echo JHTML::_('grid.sort', 'Created', 'a.created', $this->lists['order_Dir'], $this->lists['order'] ); ?>
-				</th>								<th class="title">
+				</th>								
+                                <th class="title" width="10">
+					<?php echo JHTML::_('grid.sort', 'Contacted', 'a.contacted', $this->lists['order_Dir'], $this->lists['order'] ); ?>
+				</th>	
+                                <th class="title">
 					<?php echo JHTML::_('grid.sort', 'Id', 'a.id', $this->lists['order_Dir'], $this->lists['order'] ); ?>
-				</th>				
+				</th>	
 			</tr>
 		</thead>
 		<tfoot>
@@ -67,7 +71,7 @@ defined('_JEXEC') or die('Restricted access');
  	$link = JRoute::_( 'index.php?option=com_linkcomp&view=winner&task=edit&cid[]='. $row->id );
  	$row->id = $row->id; 	
  	$checked = JHTML::_('grid.id', $i, $row->id); 	
-  	$published = JHTML::_('grid.published', $row, $i ); 	
+  	$contacted = JHTML::_('grid.boolean', $i, $row->contacted ); 	
  	
   ?>
 	<tr class="<?php echo "row$k"; ?>">
@@ -77,11 +81,11 @@ defined('_JEXEC') or die('Restricted access');
         <td><?php echo $checked  ?></td>	
 
 
-        <td><?php echo $row->created ?></td>        <td>
-							
-							<a <?php echo $onclick; ?>href="<?php echo $link; ?>"><?php echo $row->id; ?></a>
- 									
-		</td>		
+        <td><?php echo $row->created ?></td>
+         <td><?php echo $contacted ?></td>
+        <td>
+            <a <?php echo $onclick; ?>href="<?php echo $link; ?>"><?php echo $row->id; ?></a>
+        </td>		
 	</tr>
 <?php
   $k = 1 - $k;

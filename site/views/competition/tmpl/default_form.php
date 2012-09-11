@@ -70,7 +70,7 @@ function myValidate(f) {
     &nbsp;<?php echo JText::_( 'Enter your message' );?>:
     </label>
     <br />
-    <textarea cols="50" rows="10" name="description" id="description" class="inputbox required"><?php echo $this->description;?></textarea>
+    <textarea cols="50" rows="10" name="description" id="description" class="inputbox"><?php echo $this->description;?></textarea>
     <br />
     <br />
     <button class="button validate" type="submit"><?php echo JText::_('Send'); ?></button>

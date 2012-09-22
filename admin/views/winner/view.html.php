@@ -43,6 +43,9 @@ class LinkcompViewWinner  extends JView {
 		$lists['search'] = $search;
 		$items = $this->get('Data');
 		
+                $compModel = JModel::getInstance( 'competition', 'LinkcompModel' );
+                $contModel = JModel::getInstance( 'contestant', 'LinkcompModel' );
+                
 		//pagination
 		$pagination = & $this->get( 'Pagination' );
 		
@@ -50,6 +53,8 @@ class LinkcompViewWinner  extends JView {
 		$this->assign('lists', $lists);	
 		$this->assign('items', $items);		
 		$this->assign('total', $total);
+		$this->assign('compModel', $compModel);		
+		$this->assign('contModel', $contModel);		
 		$this->assign('pagination', $pagination);		
 		parent::display();
 	}

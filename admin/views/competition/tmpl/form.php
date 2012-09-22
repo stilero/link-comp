@@ -16,6 +16,8 @@ if (!$edit) {
 	// for existing items the button is renamed `close`
 	JToolBarHelper::cancel( 'cancel', 'Close' );
 }
+//$params = & JComponentHelper::getParams('com_linkcomp');
+//var_dump($params);exit;
 ?>
 
 <script language="javascript" type="text/javascript">

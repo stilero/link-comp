@@ -45,7 +45,9 @@ class LinkcompController extends JController
 		if(isset($config['viewname'])) $this->_viewname = $config['viewname'];
 		if(isset($config['mainmodel'])) $this->_mainmodel = $config['mainmodel'];
 		if(isset($config['itemname'])) $this->_itemname = $config['itemname']; 
-
+                $language = JFactory::getLanguage();
+                $language->load('com_linkcomp', JPATH_SITE, 'en-GB', true);
+                $language->load('com_linkcomp', JPATH_SITE, null, true);
 		JRequest :: setVar('view', $this->_viewname);
 
 	}

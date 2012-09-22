@@ -9,8 +9,10 @@
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<version>1.0</version>
 	<description>Gain backlinks with your competitions.</description>
-	<installfile></installfile>
-	<uninstallfile></uninstallfile>
+	<media destination="linkcomp" folder="media/linkcomp">
+            <folder>images</folder>
+            <folder>css</folder>
+        </media>
 	<install>
             <sql>
                 <file driver="mysql" charset="utf8">sql/install.mysql.sql</file>
@@ -36,11 +38,11 @@
 		<language tag="en-GB">language/en-GB.com_linkcomp.ini</language>
 	</languages>
 	<administration>
-		<menu link="index.php?option=com_linkcomp">Linkcomp</menu>
+		<menu img="../media/linkcomp/images/linkcomp.png" link="index.php?option=com_linkcomp">Linkcomp</menu>
                     <submenu>
-                        <menu link="option=com_linkcomp&amp;view=competition">Competition</menu>
-                        <menu link="option=com_linkcomp&amp;view=contestant">Contestant</menu>
-                        <menu link="option=com_linkcomp&amp;view=winner">Winner</menu>
+                        <menu img="../media/linkcomp/images/competition.png" link="option=com_linkcomp&amp;view=competition">Competition</menu>
+                        <menu img="../media/linkcomp/images/contestant.png" link="option=com_linkcomp&amp;view=contestant">Contestant</menu>
+                        <menu img="../media/linkcomp/images/winner.png" link="option=com_linkcomp&amp;view=winner">Winner</menu>
                     </submenu>
 		<files folder="admin">
                     <filename>config.xml</filename>

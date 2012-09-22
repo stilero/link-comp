@@ -43,14 +43,20 @@ class LinkcompViewContestant  extends JView {
 		$lists['search'] = $search;
 		$items = $this->get('Data');
 		
+                $compModel = JModel::getInstance( 'competition', 'LinkcompModel' );
+                //$compId = $items[0]->competition_id;
+                
+                
 		//pagination
 		$pagination = & $this->get( 'Pagination' );
 		
 		$this->assignRef('user', JFactory :: getUser());
 		$this->assign('lists', $lists);	
 		$this->assign('items', $items);		
+		$this->assign('compModel', $compModel);		
 		$this->assign('total', $total);
-		$this->assign('pagination', $pagination);		
+		$this->assign('pagination', $pagination);
+               
 		parent::display();
 	}
 	

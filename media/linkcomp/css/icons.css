@@ -1,0 +1,16 @@
+/* 
+    Document   : icons
+    Created on : 2012-sep-20, 18:50:07
+    Author     : Daniel Eliasson Stilero Webdesign http://www.stilero.com
+    Description:
+        Purpose of the stylesheet follows.
+*/
+.icon-48-competition{
+    background-image: url("../images/competition_big.png");
+}
+.icon-48-contestant{
+    background-image: url("../images/contestant_big.png");
+}
+.icon-48-winner{
+    background-image: url("../images/winner_big.png");
+}

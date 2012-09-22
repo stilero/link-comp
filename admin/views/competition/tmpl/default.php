@@ -1,8 +1,11 @@
 <?php
 // no direct access
 defined('_JEXEC') or die('Restricted access');
+$document =& JFactory::getDocument();
+$cssFile = JURI::root(true).'/media/linkcomp/css/icons.css';
+$document->addStyleSheet($cssFile, 'text/css', null, array());
 
-  JToolBarHelper::title( JText::_( 'Competition' ), 'generic.png' );
+  JToolBarHelper::title( JText::_( 'Competition' ), 'competition.png' );
   JToolBarHelper::publishList();
   JToolBarHelper::unpublishList();
   JToolBarHelper::deleteList();

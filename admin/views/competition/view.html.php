@@ -52,7 +52,7 @@ class LinkcompViewCompetition  extends JView {
 		$this->assign('lists', $lists);	
 		$this->assign('items', $items);		
 		$this->assign('total', $total);
-		$this->assign('pagination', $pagination);		
+		$this->assign('pagination', $pagination);	
 		parent::display();
 	}
 	

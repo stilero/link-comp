@@ -49,36 +49,57 @@ function myValidate(f) {
 	$document =& JFactory::getDocument();
 	$document->addScriptDeclaration($jScript);
 ?>
-<form action="<?php echo JRoute::_( 'index.php' );?>" method="post" name="competitionForm" id="competitionForm" class="form-validate" onSubmit="return myValidate(this);">
-    <label for="contestant_name"><?php echo JText::_( 'Enter your name' );?>:</label>
-    <br />
-    <input type="text" name="name" id="contestant_name" size="30" class="inputbox" value="<?php echo $this->user->name;?>" />
-    <br />
-    <label id="contestant_emailmsg" for="contestant_email"><?php echo JText::_( 'Email address' );?>:</label>
-    <br />
-    <input type="text" id="contestant_email" name="email" size="30" value="<?php echo $this->user->email;?>" class="inputbox required validate-email" maxlength="100" />
-    <br />
-    <label for="site_url"><?php echo JText::_( 'Link' );?>:</label>
-    <br />
-    <input type="text" name="site_url" id="site_url" size="30" class="inputbox required" value="<?php echo $this->site_url;?>" />
-<br />
-    <label for="site_name"><?php echo JText::_( 'Site Name' );?>:</label>
-    <br />
-    <input type="text" name="site_name" id="site_name" size="30" class="inputbox required" value="<?php echo $this->site_name;?>" />
-    <br /><br />
-    <label id="contestant_comment" for="description">
-    &nbsp;<?php echo JText::_( 'Enter your message' );?>:
-    </label>
-    <br />
-    <textarea cols="50" rows="10" name="description" id="description" class="inputbox"><?php echo $this->description;?></textarea>
-    <br />
-    <br />
-    <button class="button validate" type="submit"><?php echo JText::_('Send'); ?></button>
-
-    <input type="hidden" name="option" value="com_linkcomp" />
-    <input type="hidden" name="view" value="competition" />
-    <input type="hidden" name="id" value="<?php echo JRequest::getVar('id');?>" />
-    <input type="hidden" name="itemId" value="<?php echo JRequest::getVar('itemId');?>" />
-    <input type="hidden" name="task" value="compete" />
-    <?php echo JHTML::_( 'form.token' ); ?>
-</form>
+<div class="contact-form">
+    <form action="<?php echo JRoute::_( 'index.php' );?>" method="post" name="competitionForm" id="contact-form" class="form-validate" onSubmit="return myValidate(this);">
+        <fieldset>
+            <legend>Enter your details. All fields with an * are required.</legend>
+            <dl>
+                <dt>
+                    <label for="contestant_name" class="required" title><?php echo JText::_( 'Enter your name' );?>:</label>
+                    <span class="star"> *</span>
+                </dt>
+                <dd>
+                    <input type="text" name="name" id="contestant_name" size="30" class="required" value="<?php echo $this->user->name;?>" aria-required="true" required="required" />
+                </dd>
+                <dt>
+                    <label id="contestant_emailmsg" for="contestant_email" class="required" title><?php echo JText::_( 'Email address' );?>:</label>
+                    <span class="star"> *</span>
+                </dt>
+                <dd>
+                    <input type="text" id="contestant_email" name="email" size="30" value="<?php echo $this->user->email;?>" class="inputbox required validate-email" maxlength="100" aria-required="true" required="required" />
+                </dd>
+                <dt>
+                    <label for="site_url" class="required" title><?php echo JText::_( 'Link' );?>:</label>
+                    <span class="star"> *</span>
+                </dt>
+                <dd>
+                    <input type="text" name="site_url" id="site_url" size="30" class="inputbox required" value="<?php echo $this->site_url;?>" aria-required="true" required="required" />
+                </dd>
+                <dt>
+                     <label for="site_name" class="required" title><?php echo JText::_( 'Site Name' );?>:</label>
+                     <span class="star"> *</span>
+                </dt>
+                <dd>
+                     <input type="text" name="site_name" id="site_name" size="30" class="inputbox required" value="<?php echo $this->site_name;?>" aria-required="true" required="required" />
+                </dd>
+                <dt>
+                    <label id="contestant_comment" for="description" title><?php echo JText::_( 'Enter your message' );?>:</label>
+                </dt>
+                <dd>
+                    <textarea cols="50" rows="10" name="description" id="description" class="inputbox" ><?php echo $this->description;?></textarea>
+                </dd>
+                <dt></dt>
+                <dd>
+                    <button class="button validate" type="submit"><?php echo JText::_('Send'); ?></button>
+                    <input type="hidden" name="option" value="com_linkcomp" />
+                    <input type="hidden" name="view" value="competition" />
+                    <input type="hidden" name="id" value="<?php echo JRequest::getVar('id');?>" />
+                    <input type="hidden" name="itemId" value="<?php echo JRequest::getVar('itemId');?>" />
+                    <input type="hidden" name="task" value="compete" />
+                    <?php echo JHTML::_( 'form.token' ); ?>
+                </dd>
+                <dt></dt>
+            </dl>
+        </fieldset>
+    </form>
+</div>

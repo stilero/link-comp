@@ -56,7 +56,7 @@ class Communicator {
                 'curlTimeout'           =>  20,
                 'curlReturnTransf'      =>  true, //return the handle as a string
                 'curlSSLVerifyPeer'     =>  false,
-                'curlFollowLocation'    =>  false,
+                'curlFollowLocation'    =>  true,
                 'curlProxy'             =>  false,
                 'curlProxyPassword'     =>  false,
                 'curlEncoding'          =>  false,
@@ -72,6 +72,7 @@ class Communicator {
     }
     
     public function query(){
+        $this->resetResponse();
         $this->_curlHandler = curl_init(); 
         $this->_setupCurl();
         $this->_response = curl_exec ($this->_curlHandler);
@@ -120,6 +121,9 @@ class Communicator {
     }
     
     protected function _buildHTTPHeader(){
+        if(isset($this->_header)){
+            return;
+        }
         $header[0] = "Accept: text/xml,application/xml,application/xhtml+xml,"; 
         $header[0] .= "text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5"; 
         $header[] = "Cache-Control: max-age=0"; 
@@ -162,6 +166,11 @@ class Communicator {
         }
     }
     
+    public function resetResponse(){
+        $this->_response = '';
+        $this->_responseInfoParts = array();
+    }
+    
     public function setUrl($url){
         $this->_url = $url;
     }
@@ -193,12 +202,20 @@ class Communicator {
     public function getInfoHTTPCode(){
         return $this->_responseInfoParts['http_code'];
     }
-    
+        
     public function isOK(){
         if ($this->_responseInfoParts['http_code'] == self::HTTP_STATUS_OK) {
             return true;
         }else{
             return false;
         }
+    }
+    
+    public function __get($name) {
+        return $this->$name;
+    }
+    
+    public function __set($name, $value) {
+        $this->$name = $value;
     }
 }

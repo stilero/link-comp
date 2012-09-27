@@ -1,7 +1,7 @@
 <?php
 /**
 * @version		$Id: default_controller.php 96 2011-08-11 06:59:32Z michel $
-* @package		Linkcomp
+* @package		Linkcontest
 * @subpackage 	Controllers
 * @copyright	Copyright (C) 2012, Daniel Eliasson. All rights reserved.
 * @license #http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
@@ -13,12 +13,12 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.controller');
 
 /**
- * LinkcompWinner Controller
+ * LinkcontestWinner Controller
  *
- * @package    Linkcomp
+ * @package    Linkcontest
  * @subpackage Controllers
  */
-class LinkcompControllerWinner extends LinkcompController
+class LinkcontestControllerWinner extends LinkcontestController
 {
 	/**
 	 * Constructor

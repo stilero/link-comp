@@ -14,7 +14,7 @@ class JElementCompetition extends JElement
 
 	function fetchElement($name, $value, &$node, $control_name)
 	{
-		JTable::addIncludePath(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_linkcomp'.DS.'tables');
+		JTable::addIncludePath(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_linkcontest'.DS.'tables');
 		$app		= JFactory::getApplication();
 		$db			= JFactory::getDbo();
 		$doc		= JFactory::getDocument();
@@ -35,7 +35,7 @@ class JElementCompetition extends JElement
 		}";
 		$doc->addScriptDeclaration($js);
 
-		$link = 'index.php?option=com_linkcomp&amp;view=competition&amp;task=element&amp;tmpl=component&amp;function=jSelectCompetition_'.$name;
+		$link = 'index.php?option=com_linkcontest&amp;view=competition&amp;task=element&amp;tmpl=component&amp;function=jSelectCompetition_'.$name;
 
 		JHtml::_('behavior.modal', 'a.modal');
 		$html = "\n".'<div class="fltlft"><input type="text" id="'.$name.'_name" value="'.htmlspecialchars($item->title, ENT_QUOTES, 'UTF-8').'" disabled="disabled" /></div>';

@@ -2,7 +2,7 @@
 /**
  * @version 1.0
  * @package    joomla
- * @subpackage Linkcomp
+ * @subpackage Linkcontest
  * @author	   	Daniel Eliasson
  *  @copyright  	Copyright (C) 2012, Daniel Eliasson. All rights reserved.
  *  @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
@@ -22,7 +22,7 @@ jimport('joomla.application.component.helper');
 JHTML::addIncludePath(JPATH_COMPONENT.DS.'helpers');
 
 //include Helper
-require_once(JPATH_COMPONENT.DS.'helpers'.DS.'linkcomp.php');
+require_once(JPATH_COMPONENT.DS.'helpers'.DS.'linkcontest.php');
 
 //Use the JForms, even in Joomla 1.5 
 $jv = new JVersion();
@@ -33,7 +33,7 @@ $controller = JRequest::getWord('view', 'competition');
 
 //add submenu for 1.6
 if ($jv->RELEASE > 1.5) {
-	LinkcompHelper::addSubmenu($controller);	
+	LinkcontestHelper::addSubmenu($controller);	
 }
 
 
@@ -52,7 +52,7 @@ if ( $controller) {
 }
 
 // Create the controller
-$classname    = 'LinkcompController'.$controller;
+$classname    = 'LinkcontestController'.$controller;
 $controller   = new $classname($ControllerConfig );
 
 // Perform the Request task

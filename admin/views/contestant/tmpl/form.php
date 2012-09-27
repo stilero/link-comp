@@ -103,7 +103,7 @@ Joomla.submitbutton = function(task)
 			        
 
         </div>                   
-		<input type="hidden" name="option" value="com_linkcomp" />
+		<input type="hidden" name="option" value="com_linkcontest" />
 	    <input type="hidden" name="cid[]" value="<?php echo $this->item->id ?>" />
 		<input type="hidden" name="task" value="" />
 		<input type="hidden" name="view" value="contestant" />

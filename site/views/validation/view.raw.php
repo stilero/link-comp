@@ -1,7 +1,7 @@
 <?php
 /**
 * @version		$Id: default_viewfrontend.php 96 2011-08-11 06:59:32Z michel $
-* @package		Linkcomp
+* @package		Linkcontest
 * @subpackage 	Views
 * @copyright	Copyright (C) 2012, Daniel Eliasson. All rights reserved.
 * @license #http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
@@ -12,15 +12,15 @@ defined('_JEXEC') or die('Restricted access');
 
 jimport('joomla.application.component.view');
 JLoader::import('joomla.application.component.model'); 
-JLoader::import( 'competition', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_linkcomp' . DS . 'models' );
+JLoader::import( 'competition', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_linkcontest' . DS . 'models' );
 
  
-class LinkcompViewValidation extends JView{
+class LinkcontestViewValidation extends JView{
     public function display($tpl = null){
         print "hello";exit;
         $site_url = JRequest::getVar('site_url');
         $compId = JRequest::getInt('id');
-        $model = JModel::getInstance( 'competition', 'LinkcompModel' );
+        $model = JModel::getInstance( 'competition', 'LinkcontestModel' );
         $model->setId($compId);
         $data = $model->getData();
         var_dump($data);exit;

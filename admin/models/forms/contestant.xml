@@ -45,7 +45,7 @@
 			id="competition_id"
 			name="competition_id"
 			required="true"
-			type="linkcompcompetition"
+			type="linkcontestcompetition"
 			label="Competition"
 			description="competition_id_Desc"
 			class="inputbox"

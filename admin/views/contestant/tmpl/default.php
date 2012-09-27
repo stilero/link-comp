@@ -2,16 +2,16 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 $document =& JFactory::getDocument();
-$cssFile = JURI::root(true).'/media/linkcomp/css/icons.css';
+$cssFile = JURI::root(true).'/media/linkcontest/css/icons.css';
 $document->addStyleSheet($cssFile, 'text/css', null, array());
   JToolBarHelper::title( JText::_( 'Contestant' ), 'contestant.png' );
   JToolBarHelper::deleteList();
   JToolBarHelper::editListX();
   JToolBarHelper::addNewX();
-  JToolBarHelper::preferences('com_linkcomp', '550');  
+  JToolBarHelper::preferences('com_linkcontest', '550');  
 ?>
 
-<form action="index.php?option=com_linkcomp&amp;view=contestant" method="post" name="adminForm">
+<form action="index.php?option=com_linkcontest&amp;view=contestant" method="post" name="adminForm">
     <table>
         <tr>
             <td align="left" width="100%">
@@ -80,7 +80,7 @@ $document->addStyleSheet($cssFile, 'text/css', null, array());
                         if (JRequest::getVar('function', null)) {
                             $onclick= "onclick=\"window.parent.jSelectContestant_id('".$row->id."', '".$this->escape($row->name)."', '','id')\" ";
                         }  	
-                        $link = JRoute::_( 'index.php?option=com_linkcomp&view=contestant&task=edit&cid[]='. $row->id );
+                        $link = JRoute::_( 'index.php?option=com_linkcontest&view=contestant&task=edit&cid[]='. $row->id );
                         $row->id = $row->id; 	
                         $checked = JHTML::_('grid.id', $i, $row->id); 	
                         $confirmed = JHTML::_('grid.boolean',$i , $row->confirmed );
@@ -117,7 +117,7 @@ $document->addStyleSheet($cssFile, 'text/css', null, array());
             </tbody>
         </table>
     </div>
-    <input type="hidden" name="option" value="com_linkcomp" />
+    <input type="hidden" name="option" value="com_linkcontest" />
     <input type="hidden" name="task" value="contestant" />
     <input type="hidden" name="view" value="contestant" />
     <input type="hidden" name="boxchecked" value="0" />

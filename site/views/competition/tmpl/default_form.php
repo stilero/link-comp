@@ -91,7 +91,7 @@ function myValidate(f) {
                 <dt></dt>
                 <dd>
                     <button class="button validate" type="submit"><?php echo JText::_('Send'); ?></button>
-                    <input type="hidden" name="option" value="com_linkcomp" />
+                    <input type="hidden" name="option" value="com_linkcontest" />
                     <input type="hidden" name="view" value="competition" />
                     <input type="hidden" name="id" value="<?php echo JRequest::getVar('id');?>" />
                     <input type="hidden" name="itemId" value="<?php echo JRequest::getVar('itemId');?>" />

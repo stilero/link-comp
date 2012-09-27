@@ -2,7 +2,7 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 $document =& JFactory::getDocument();
-$cssFile = JURI::root(true).'/media/linkcomp/css/icons.css';
+$cssFile = JURI::root(true).'/media/linkcontest/css/icons.css';
 $document->addStyleSheet($cssFile, 'text/css', null, array());
 
   JToolBarHelper::title( JText::_( 'Competition' ), 'competition.png' );
@@ -11,10 +11,10 @@ $document->addStyleSheet($cssFile, 'text/css', null, array());
   JToolBarHelper::deleteList();
   JToolBarHelper::editListX();
   JToolBarHelper::addNewX();
-  JToolBarHelper::preferences('com_linkcomp', '550');  
+  JToolBarHelper::preferences('com_linkcontest', '550');  
 ?>
 
-<form action="index.php?option=com_linkcomp&amp;view=competition" method="post" name="adminForm">
+<form action="index.php?option=com_linkcontest&amp;view=competition" method="post" name="adminForm">
 	<table>
 		<tr>
 			<td align="left" width="100%">
@@ -79,7 +79,7 @@ $document->addStyleSheet($cssFile, 'text/css', null, array());
     	$onclick= "onclick=\"window.parent.jSelectCompetition_id('".$row->id."', '".$this->escape($row->title)."', '','id')\" ";
     }  	
     
- 	$link = JRoute::_( 'index.php?option=com_linkcomp&view=competition&task=edit&cid[]='. $row->id );
+ 	$link = JRoute::_( 'index.php?option=com_linkcontest&view=competition&task=edit&cid[]='. $row->id );
  	$row->id = $row->id; 	
  	$checked = JHTML::_('grid.id', $i, $row->id); 	
   	$published = JHTML::_('grid.published', $row, $i ); 	
@@ -119,7 +119,7 @@ $document->addStyleSheet($cssFile, 'text/css', null, array());
 </tbody>
 </table>
 </div>
-<input type="hidden" name="option" value="com_linkcomp" />
+<input type="hidden" name="option" value="com_linkcontest" />
 <input type="hidden" name="task" value="competition" />
 <input type="hidden" name="view" value="competition" />
 <input type="hidden" name="boxchecked" value="0" />

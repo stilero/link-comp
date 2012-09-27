@@ -4,9 +4,9 @@ global $alt_libdir;
 JLoader::import('joomla.application.component.modellist', $alt_libdir);
 jimport('joomla.application.component.helper');
 
-JTable::addIncludePath(JPATH_ROOT.'/administrator/components/com_linkcomp/tables');
+JTable::addIncludePath(JPATH_ROOT.'/administrator/components/com_linkcontest/tables');
 
-class LinkcompModelCompetitionlist extends JModelList
+class LinkcontestModelCompetitionlist extends JModelList
 {
 	public function __construct($config = array())
 	{		
@@ -51,7 +51,7 @@ class LinkcompModelCompetitionlist extends JModelList
 		$query->select('a.*, '
 		. ' CASE WHEN CHAR_LENGTH(a.alias) THEN CONCAT_WS(\':\', a.id, a.alias) ELSE a.id END as slug');
 
-		$query->from('#__linkcomp_competition as a');	
+		$query->from('#__linkcontest_competition as a');	
 		$query->where('a.published>0');					
 		return $query;
 	}	

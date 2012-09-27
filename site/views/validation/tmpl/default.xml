@@ -11,7 +11,7 @@
 	<state>
 	<name>Competition Layout</name>
 		<description>Competition Layout_DESC</description>	
-		<url addpath="/administrator/components/com_linkcomp/elements">
+		<url addpath="/administrator/components/com_linkcontest/elements">
 			<param name="id" type="competition" default="0" label="Select Competition" description="A Competition" />
 		</url>
 		<params>
@@ -21,10 +21,10 @@
 	<!-- Fields for Joomla > 1.5. -->
 	<fields name="request">
 		<fieldset name="request"
-			addfieldpath="/administrator/components/com_linkcomp/models/fields"
+			addfieldpath="/administrator/components/com_linkcontest/models/fields"
 		>
 			<field name="id"
-				type="linkcompcompetition"
+				type="linkcontestcompetition"
 				description="Competition_SELECT_DESC"
 				label="Select Competition"
 				required="true"

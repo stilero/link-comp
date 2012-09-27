@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `#__linkcomp_competition` (
+CREATE TABLE IF NOT EXISTS `#__linkcontest_competition` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
   `alias` varchar(255) DEFAULT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `#__linkcomp_competition` (
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS `#__linkcomp_contestant` (
+CREATE TABLE IF NOT EXISTS `#__linkcontest_contestant` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `competition_id` int(11) unsigned NOT NULL,
   `userid` int(11) DEFAULT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `#__linkcomp_contestant` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS `#__linkcomp_winner` (
+CREATE TABLE IF NOT EXISTS `#__linkcontest_winner` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `contestant_id` int(11) unsigned NOT NULL,
   `competition_id` int(11) unsigned NOT NULL,

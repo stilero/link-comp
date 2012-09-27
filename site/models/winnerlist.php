@@ -4,9 +4,9 @@ global $alt_libdir;
 JLoader::import('joomla.application.component.modellist', $alt_libdir);
 jimport('joomla.application.component.helper');
 
-JTable::addIncludePath(JPATH_ROOT.'/administrator/components/com_linkcomp/tables');
+JTable::addIncludePath(JPATH_ROOT.'/administrator/components/com_linkcontest/tables');
 
-class LinkcompModelWinnerlist extends JModelList
+class LinkcontestModelWinnerlist extends JModelList
 {
 	public function __construct($config = array())
 	{		
@@ -49,7 +49,7 @@ class LinkcompModelWinnerlist extends JModelList
 	
 		$catid = (int) $this->getState('authorlist.id', 1);		
 		$query->select('a.*');
-		$query->from('#__linkcomp_winner as a');
+		$query->from('#__linkcontest_winner as a');
 					
 		return $query;
 	}	

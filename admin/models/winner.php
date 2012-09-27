@@ -2,19 +2,19 @@
  defined('_JEXEC') or die('Restricted access');
 /**
 * @version		$Id:winner.php  1 2012-08-28 19:17:39Z Stilero Webdesign $
-* @package		Linkcomp
+* @package		Linkcontest
 * @subpackage 	Models
 * @copyright	Copyright (C) 2012, Daniel Eliasson. All rights reserved.
 * @license #http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 */
  defined('_JEXEC') or die('Restricted access');
 /**
- * LinkcompModelWinner 
+ * LinkcontestModelWinner 
  * @author Daniel Eliasson
  */
  
  
-class LinkcompModelWinner  extends LinkcompModel { 
+class LinkcontestModelWinner  extends LinkcontestModel { 
 
 	
 	

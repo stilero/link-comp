@@ -1,7 +1,7 @@
 <?php
 /**
 * @version		$Id:winner.php 1 2012-08-28 19:17:39Z Stilero Webdesign $
-* @package		Linkcomp
+* @package		Linkcontest
 * @subpackage 	Tables
 * @copyright	Copyright (C) 2012, Daniel Eliasson. All rights reserved.
 * @license #http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
@@ -13,7 +13,7 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.view');
 
  
-class LinkcompViewWinner  extends JView {
+class LinkcontestViewWinner  extends JView {
 
 	public function display($tpl = null) 
 	{
@@ -24,7 +24,7 @@ class LinkcompViewWinner  extends JView {
 			$this->_displayForm($tpl);		
 			return;
 		}
-		$context			= 'com_linkcomp'.'.'.strtolower($this->getName()).'.list.';
+		$context			= 'com_linkcontest'.'.'.strtolower($this->getName()).'.list.';
 		
 		$filter_order = $app->getUserStateFromRequest($context . 'filter_order', 'filter_order', $this->get('DefaultFilter'), 'cmd');
 		$filter_order_Dir = $app->getUserStateFromRequest($context . 'filter_order_Dir', 'filter_order_Dir', '', 'word');
@@ -43,8 +43,8 @@ class LinkcompViewWinner  extends JView {
 		$lists['search'] = $search;
 		$items = $this->get('Data');
 		
-                $compModel = JModel::getInstance( 'competition', 'LinkcompModel' );
-                $contModel = JModel::getInstance( 'contestant', 'LinkcompModel' );
+                $compModel = JModel::getInstance( 'competition', 'LinkcontestModel' );
+                $contModel = JModel::getInstance( 'contestant', 'LinkcontestModel' );
                 
 		//pagination
 		$pagination = & $this->get( 'Pagination' );
@@ -68,7 +68,7 @@ class LinkcompViewWinner  extends JView {
 		global  $alt_libdir;
 		
 		JLoader::import('joomla.form.formvalidator', $alt_libdir);		
-		JHTML::stylesheet( 'fields.css', 'administrator/components/com_linkcomp/assets/' );
+		JHTML::stylesheet( 'fields.css', 'administrator/components/com_linkcontest/assets/' );
 
 		$db			=& JFactory::getDBO();
 		$uri 		=& JFactory::getURI();

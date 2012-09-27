@@ -1,7 +1,7 @@
 <?php
 /**
 * @version		$Id:controller.php  1 2012-08-28Z Stilero Webdesign $
-* @package		Linkcomp
+* @package		Linkcontest
 * @subpackage 	Controllers
 * @copyright	Copyright (C) 2012, Daniel Eliasson. All rights reserved.
 * @license #http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
@@ -12,11 +12,11 @@ defined('_JEXEC') or die('Restricted access');
 
 jimport('joomla.application.component.controller');
 JLoader::import('joomla.application.component.model'); 
-JLoader::import( 'communicator', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_linkcomp' . DS . 'classes' );
-JLoader::import( 'backlinkvalidator', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_linkcomp' . DS . 'classes' );
-JLoader::import( 'link', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_linkcomp' . DS . 'classes' );
-//JLoader::import( 'model', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_linkcomp' . DS . 'models' );
-//JLoader::import( 'competition', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_linkcomp' . DS . 'models' );
+JLoader::import( 'communicator', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_linkcontest' . DS . 'classes' );
+JLoader::import( 'backlinkvalidator', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_linkcontest' . DS . 'classes' );
+JLoader::import( 'link', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_linkcontest' . DS . 'classes' );
+//JLoader::import( 'model', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_linkcontest' . DS . 'models' );
+//JLoader::import( 'competition', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_linkcontest' . DS . 'models' );
 
 
 /**
@@ -25,13 +25,13 @@ JLoader::import( 'link', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_lin
  * @package    
  * @subpackage Controllers
  */
-class LinkcompController extends JController
+class LinkcontestController extends JController
 {
 
 	protected $_viewname = 'item';
 	protected $_mainmodel = 'item';
 	protected $_itemname = 'Item';    
-	protected $_context = "com_linkcomp";
+	protected $_context = "com_linkcontest";
         protected $_msg = '';
         protected $_validator;
 	/**
@@ -46,8 +46,8 @@ class LinkcompController extends JController
 		if(isset($config['mainmodel'])) $this->_mainmodel = $config['mainmodel'];
 		if(isset($config['itemname'])) $this->_itemname = $config['itemname']; 
                 $language = JFactory::getLanguage();
-                $language->load('com_linkcomp', JPATH_SITE, 'en-GB', true);
-                $language->load('com_linkcomp', JPATH_SITE, null, true);
+                $language->load('com_linkcontest', JPATH_SITE, 'en-GB', true);
+                $language->load('com_linkcontest', JPATH_SITE, null, true);
 		JRequest :: setVar('view', $this->_viewname);
 
 	}
@@ -65,7 +65,7 @@ class LinkcompController extends JController
 	}
         
         public function compete(){
-            JLoader::import( 'contestant', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_linkcomp' . DS . 'models' );
+            JLoader::import( 'contestant', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_linkcontest' . DS . 'models' );
             JRequest::checkToken() or jexit( 'Invalid Token' );
             $user =& JFactory::getUser();
             $messageType = '';
@@ -83,7 +83,7 @@ class LinkcompController extends JController
                         'description' => JRequest::getVar('description'),
                         'created' => $date->toFormat()
                     ); 
-                    $model = JModel::getInstance( 'contestant', 'LinkcompModel' );
+                    $model = JModel::getInstance( 'contestant', 'LinkcontestModel' );
                     if ($model->store($post)) {
                         $this->_msg .= JText :: _('Thanks for participating. ').'</ br>';
                     } else {
@@ -97,7 +97,7 @@ class LinkcompController extends JController
                 $this->_msg .= JText :: _('You must be logged in to compete.').'</ br>';
                 $messageType = 'error';
             }
-            $link = 'index.php?option=com_linkcomp&view='.$this->_viewname.'&id='.JRequest::getVar('id').'&itemId='.JRequest::getInt('itemId') ;
+            $link = 'index.php?option=com_linkcontest&view='.$this->_viewname.'&id='.JRequest::getVar('id').'&itemId='.JRequest::getInt('itemId') ;
             $this->setRedirect($link, $this->_msg, $messageType);
         }
         

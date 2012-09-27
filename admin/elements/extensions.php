@@ -1,7 +1,7 @@
 <?php
 defined('_JEXEC') or die;
 
-require_once (JPATH_ADMINISTRATOR.DS.'components'.DS.'com_linkcomp'.DS.'helpers'.DS.'linkcomp.php' );
+require_once (JPATH_ADMINISTRATOR.DS.'components'.DS.'com_linkcontest'.DS.'helpers'.DS.'linkcontest.php' );
 
 class JElementExtensions extends JElement
 {
@@ -16,7 +16,7 @@ class JElementExtensions extends JElement
 	function fetchElement($name, $value, &$node, $control_name)
 	{
 	
-		$extensions = LinkcompHelper::getExtensions();
+		$extensions = LinkcontestHelper::getExtensions();
 		$options = array();
 		foreach ($extensions as $extension) {   
 		

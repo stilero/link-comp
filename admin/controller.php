@@ -2,7 +2,7 @@
 /**
  * @version		$Id:controller.php 1 2012-08-28Z Stilero Webdesign $
  * @author	   	Daniel Eliasson
- * @package    Linkcomp
+ * @package    Linkcontest
  * @subpackage Controllers
  * @copyright  	Copyright (C) 2012, Daniel Eliasson. All rights reserved.
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
@@ -14,12 +14,12 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.controller');
 
 /**
- * Linkcomp Standard Controller
+ * Linkcontest Standard Controller
  *
- * @package Linkcomp   
+ * @package Linkcontest   
  * @subpackage Controllers
  */
-class LinkcompController extends JController
+class LinkcontestController extends JController
 {
 
 	protected $_viewname = 'item';
@@ -106,12 +106,12 @@ class LinkcompController extends JController
 		switch ($this->getTask())
 		{
 			case 'apply':
-				$link = 'index.php?option=com_linkcomp&view='.$this->_viewname.'&task=edit&cid[]='.$model->getId() ;
+				$link = 'index.php?option=com_linkcontest&view='.$this->_viewname.'&task=edit&cid[]='.$model->getId() ;
 				break;
 
 			case 'save':
 			default:
-				$link = 'index.php?option=com_linkcomp&view='.$this->_viewname;
+				$link = 'index.php?option=com_linkcontest&view='.$this->_viewname;
 				break;
 		}
         
@@ -139,7 +139,7 @@ class LinkcompController extends JController
 		if (!$model->delete($cid)) {
 				$msg = $model->getError(); 
 		}		
-		$link = 'index.php?option=com_linkcomp&view='.$this->_viewname;
+		$link = 'index.php?option=com_linkcontest&view='.$this->_viewname;
 		$this->setRedirect($link, $msg);
 	}
 

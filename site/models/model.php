@@ -1,7 +1,7 @@
 <?php 
 /**
 * @version		$Id:Model.php  1 2012-08-28Z Stilero Webdesign $
-* @package		Linkcomp
+* @package		Linkcontest
 * @subpackage 	Models
 * @copyright	Copyright (C) 2012, Daniel Eliasson. All rights reserved.
 * @license #http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
@@ -17,7 +17,7 @@ jimport( 'joomla.application.component.model' );
 
 require_once(JPATH_COMPONENT_ADMINISTRATOR.DS.'helpers'.DS.'query.php'); 
 
-class LinkcompModel  extends JModel { 
+class LinkcontestModel  extends JModel { 
 
   
 	/**

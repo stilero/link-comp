@@ -1,7 +1,7 @@
 <?php
 /**
  * @version		$Id: route.php 96 2011-08-11 06:59:32Z michel $
- * @package		Linkcomp
+ * @package		Linkcontest
  * @subpackage	Helpers
  * @copyright	Copyright (C) 2012 Open Source Matters, Inc. All rights reserved.
  * @license		http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
@@ -15,26 +15,26 @@ jimport('joomla.application.component.helper');
 global $alt_libdir;
 JLoader::import('joomla.application.categories', $alt_libdir);
 /**
- * Linkcomp Component Route Helper
+ * Linkcontest Component Route Helper
  *
  * @static
- * @package		Linkcomp
+ * @package		Linkcontest
  * @subpackage	Helpers
 
  */
-abstract class LinkcompHelperRoute
+abstract class LinkcontestHelperRoute
 {
 	protected static $lookup;
 	/**
-	 * @param	int	The route of the linkcomp
+	 * @param	int	The route of the linkcontest
 	 */
-	public static function getLinkcompRoute($id, $catid)
+	public static function getLinkcontestRoute($id, $catid)
 	{
 		$needles = array(
 			'competition'  => array((int) $id)
 		);
 		//Create the link
-		$link = 'index.php?option=com_linkcomp&view=competition&id='. $id;
+		$link = 'index.php?option=com_linkcontest&view=competition&id='. $id;
 		if ($catid > 1) {
 			$categories = JCategories::getInstance('Competition');
 			$category = $categories->get($catid);
@@ -45,7 +45,7 @@ abstract class LinkcompHelperRoute
 			}
 		}
 
-		if ($item = LinkcompHelperRoute::_findItem($needles)) {
+		if ($item = LinkcontestHelperRoute::_findItem($needles)) {
 			$link .= '&Itemid='.$item;
 		};
 
@@ -64,9 +64,9 @@ abstract class LinkcompHelperRoute
 		else
 		{
 			$id = (int) $catid;
-		    $options['extension'] = $app->getUserStateFromRequest('filter.extension', 'extension', 'com_linkcomp.competition');	
+		    $options['extension'] = $app->getUserStateFromRequest('filter.extension', 'extension', 'com_linkcontest.competition');	
 			$options['table'] = $app->getUserStateFromRequest('filter.extensiontable', 'extensiontable');
-			$category = BookshopCategories::getInstance('Linkcomp',$options)->get($id);
+			$category = BookshopCategories::getInstance('Linkcontest',$options)->get($id);
 		}
 
 		if($id < 1)
@@ -86,7 +86,7 @@ abstract class LinkcompHelperRoute
 			else
 			{
 				//Create the link
-				$link = 'index.php?option=com_linkcomp&view=category&id='.$id;
+				$link = 'index.php?option=com_linkcontest&view=category&id='.$id;
 				if($category)
 				{
 					$catids = array_reverse($category->getPath());
@@ -113,7 +113,7 @@ abstract class LinkcompHelperRoute
 		if (self::$lookup === null) {
 			self::$lookup = array();
 
-			$component	= JComponentHelper::getComponent('com_linkcomp');
+			$component	= JComponentHelper::getComponent('com_linkcontest');
 			$menus		= JApplication::getMenu('site');
 			$jv = new JVersion();
 			$field = ($jv->RELEASE < 1.6) ? 'componentid' : 'component_id';

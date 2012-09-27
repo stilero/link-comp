@@ -10,9 +10,9 @@
 // no direct access
 defined('_JEXEC') or die;
 
-require_once(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_linkcomp'.DS.'helpers'.DS.'query.php');
+require_once(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_linkcontest'.DS.'helpers'.DS.'query.php');
 
-class LinkcompHelper
+class LinkcontestHelper
 {
 	
 	/*
@@ -23,19 +23,19 @@ class LinkcompHelper
         
 		JSubMenuHelper::addEntry(
 			JText::_('Competition'),
-			'index.php?option=com_linkcomp&view=competition',
+			'index.php?option=com_linkcontest&view=competition',
 			($vName == 'competition')
 		);
 
 		JSubMenuHelper::addEntry(
 			JText::_('Contestant'),
-			'index.php?option=com_linkcomp&view=contestant',
+			'index.php?option=com_linkcontest&view=contestant',
 			($vName == 'contestant')
 		);
 
 		JSubMenuHelper::addEntry(
 			JText::_('Winner'),
-			'index.php?option=com_linkcomp&view=winner',
+			'index.php?option=com_linkcontest&view=winner',
 			($vName == 'winner')
 		);
 
@@ -49,10 +49,10 @@ class LinkcompHelper
 	{
 				
 		$jv = new JVersion();
-		$alt_libdir = ($jv->RELEASE < 1.6) ? JPATH_ADMINISTRATOR.DS.'components'.DS.'com_linkcomp' : null;
+		$alt_libdir = ($jv->RELEASE < 1.6) ? JPATH_ADMINISTRATOR.DS.'components'.DS.'com_linkcontest' : null;
 		JLoader::import('joomla.utilities.xmlelement', $alt_libdir);
 		
-		$xml = simplexml_load_file(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_linkcomp'.DS.'elements'.DS.'extensions.xml', 'JXMLElement');		        
+		$xml = simplexml_load_file(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_linkcontest'.DS.'elements'.DS.'extensions.xml', 'JXMLElement');		        
 		$elements = $xml->xpath('extensions');
 		$extensions = $xml->extensions->xpath('descendant-or-self::extension');
 		
@@ -68,7 +68,7 @@ class LinkcompHelper
  * @subpackage	HTML
  * @since		1.5
  */
-abstract class JHtmlLinkcomp
+abstract class JHtmlLinkcontest
 {
 	/**
 	 * @var	array	Cached array of the category items.
@@ -82,14 +82,14 @@ abstract class JHtmlLinkcomp
 	 */
 	public static function extensions($ext) 
 	{
-		$extensions = LinkcompHelper::getExtensions();
+		$extensions = LinkcontestHelper::getExtensions();
 		$options = array();
 		
 		foreach ($extensions as $extension) {   
 		
 			$option = new stdClass();
 			$option->text = JText::_(ucfirst($extension->name));
-			$option->value = 'com_linkcomp.'.$extension->name;
+			$option->value = 'com_linkcontest.'.$extension->name;
 			$options[] = $option;			
 		}		
 		return JHtml::_('select.options', $options, 'value', 'text', $ext, true);
@@ -113,7 +113,7 @@ abstract class JHtmlLinkcomp
 			$query	= new JQuery;
 
 			$query->select('a.id, a.title, a.level');
-			$query->from('#__linkcomp_categories AS a');
+			$query->from('#__linkcontest_categories AS a');
 			$query->where('a.parent_id > 0');
 
 			// Filter on extension.

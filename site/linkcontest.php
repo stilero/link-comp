@@ -1,7 +1,7 @@
 <?php
 /**
  * @version $Id: #component#.php 96 2011-08-11 06:59:32Z michel $ 1 2012-08-28Z Stilero Webdesign $
-* @package	Linkcomp
+* @package	Linkcontest
 * @copyright	Copyright (C) 2012, Daniel Eliasson. All rights reserved.
 * @license #http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  */
@@ -24,7 +24,7 @@ $jv = new JVersion();
 $GLOBALS['alt_libdir'] = ($jv->RELEASE < 1.6) ? JPATH_COMPONENT_ADMINISTRATOR : null;
 
 
-$config 	=& JComponentHelper::getParams( 'com_linkcomp' );
+$config 	=& JComponentHelper::getParams( 'com_linkcontest' );
 
 $controller = JRequest::getWord('view', 'competition');
 
@@ -44,7 +44,7 @@ if ($controller) {
 
 
 // Create the controller
-$classname    = 'LinkcompController'.$controller;
+$classname    = 'LinkcontestController'.$controller;
 $controller   = new $classname($ControllerConfig );
 
 // Perform the Request task

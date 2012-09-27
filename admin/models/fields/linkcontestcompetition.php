@@ -5,19 +5,19 @@ defined('JPATH_BASE') or die;
 jimport('joomla.html.html');
 
 JFormHelper::loadFieldClass('list');
-require_once (JPATH_ADMINISTRATOR.DS.'components'.DS.'com_linkcomp'.DS.'helpers'.DS.'query.php' );
+require_once (JPATH_ADMINISTRATOR.DS.'components'.DS.'com_linkcontest'.DS.'helpers'.DS.'query.php' );
 
 /**
  * Form Field class.
  */
-class JFormFieldLinkcompcontestant extends JFormFieldList
+class JFormFieldLinkcontestcompetition extends JFormFieldList
 {
 	/**
 	 * The field type.
 	 *
 	 * @var		string
 	 */
-	public $type = 'Linkcompcontestant';
+	public $type = 'Linkcontestcompetition';
 
 	/**
 	 * Method to get a list of options for a list input.
@@ -29,9 +29,9 @@ class JFormFieldLinkcompcontestant extends JFormFieldList
 		$db		= &JFactory::getDbo();
 		$query	= new JQuery;
 
-		$query->select('id AS value, name AS text');
-		$query->from('#__linkcomp_contestant');
-		$query->order('name DESC');
+		$query->select('id AS value, title AS text');
+		$query->from('#__linkcontest_competition');
+		$query->order('title DESC');
 
 		// Get the options.
 		$db->setQuery($query->__toString());

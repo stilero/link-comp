@@ -1,7 +1,7 @@
 <?php
   defined('_JEXEC') or die('Restricted access');
 
-  function LinkcompBuildRoute( &$query )
+  function LinkcontestBuildRoute( &$query )
   {
     $segments = array();
 
@@ -18,7 +18,7 @@
     return $segments;
   } // End LinkcompBuildRoute function
   
-  function LinkcompParseRoute( $segments )
+  function LinkcontestParseRoute( $segments )
   {
     $vars = array();
     

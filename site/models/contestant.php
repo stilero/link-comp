@@ -1,7 +1,7 @@
 <?php
 /**
 * @version		$Id: default_modelfrontend.php 96 2011-08-11 06:59:32Z michel $
-* @package		Linkcomp
+* @package		Linkcontest
 * @subpackage 	Models
 * @copyright	Copyright (C) 2012, . All rights reserved.
 * @license #
@@ -12,18 +12,18 @@ global $alt_libdir;
 JLoader::import('joomla.application.component.modelitem', $alt_libdir);
 jimport('joomla.application.component.helper');
 
-JTable::addIncludePath(JPATH_ROOT.'/administrator/components/com_linkcomp/tables');
+JTable::addIncludePath(JPATH_ROOT.'/administrator/components/com_linkcontest/tables');
 /**
- * LinkcompModelContestant
+ * LinkcontestModelContestant
  * @author $Author$
  */
  
  
-class LinkcompModelContestant  extends JModelItem { 
+class LinkcontestModelContestant  extends JModelItem { 
 
 	
 	
-	protected $context = 'com_linkcomp.contestant';   
+	protected $context = 'com_linkcontest.contestant';   
 	/**
 	 * Method to auto-populate the model state.
 	 *

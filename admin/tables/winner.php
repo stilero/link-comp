@@ -1,7 +1,7 @@
 <?php
 /**
 * @version		$Id:winner.php  1 2012-08-28 19:17:39Z Stilero Webdesign $
-* @package		Linkcomp
+* @package		Linkcontest
 * @subpackage 	Tables
 * @copyright	Copyright (C) 2012, Daniel Eliasson. All rights reserved.
 * @license #http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
@@ -13,7 +13,7 @@ defined('_JEXEC') or die('Restricted access');
 /**
 * Jimtawl TableWinner class
 *
-* @package		Linkcomp
+* @package		Linkcontest
 * @subpackage	Tables
 */
 class TableWinner extends JTable
@@ -25,10 +25,10 @@ class TableWinner extends JTable
    /** @var datetime created  **/
    public $created = null;
 
-   /** @var linkcompcontestant contestant_id  **/
+   /** @var linkcontestcontestant contestant_id  **/
    public $contestant_id = null;
 
-   /** @var linkcompcompetition competition_id  **/
+   /** @var linkcontestcompetition competition_id  **/
    public $competition_id = null;
 
    /** @var datetime contacted  **/
@@ -45,7 +45,7 @@ class TableWinner extends JTable
 	 */
 	public function __construct(& $db) 
 	{
-		parent::__construct('#__linkcomp_winner', 'id', $db);
+		parent::__construct('#__linkcontest_winner', 'id', $db);
 	}
 
 	/**
